@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Port Preview - Smart Port Management</title>
+    <link rel="stylesheet" href="portoverview.css">
+    <style>
+        .preview-container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .video-section,
+        .map-section,
+        .description-section {
+            margin-bottom: 40px;
+        }
+
+        .video-section video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .map-section img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .description-section {
+            background-color: #f4f9ff;
+            padding: 25px;
+            border-left: 5px solid #003366;
+            border-radius: 8px;
+        }
+
+        .description-section h2 {
+            color: #003366;
+        }
+
+        .description-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <header>SMART PORT MANAGEMENT</header>
+        <h5>ARTIFICIAL INTELLIGENCE DRIVEN</h5>
+        <hr>
+        <div class="tags">
+            <a href="portpreview.html">PORT PREVIEW</a>
+            <a href="portdash.html">PORT DASHBOARD</a>
+        </div>
+    </div>
+
+    <div class="preview-container">
+
+        
+        <div class="video-section">
+            <h2>Port Operations Demo</h2>
+            <video controls>
+                <source src="portdemo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="map-section">
+            <h2>Port Layout Map</h2>
+            <img src="portmap.jpg" alt="Port Map">
+        </div>
+
+        <div class="description-section">
+            <h2>How This System Works</h2>
+            <p>
+                This AI system learns from how the port works every day. Instead of using fixed rules made by people,
+                it figures out by itself what is going well and what is causing delays.
+            </p>
+            <p>
+                It uses a smart method called <strong>meta-learning</strong>, which helps it get better at learning over time.
+                Before making any changes in real life, it tests new ideas in a virtual copy of the port called a <strong>digital twin</strong>.
+            </p>
+            <p>
+                The system tries different workflows in this virtual port and picks the best one through automatic testing.
+                This way, the port always uses the most efficient ways to handle cargo, schedule ships, and use equipment.
+            </p>
+            <p>
+                It does all this on its own, improving continuously without needing manual reprogramming. This helps the port run faster
+                and smoother in real time.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

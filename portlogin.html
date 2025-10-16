@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Port Management Login</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="portoverview.css">
+    <link rel="stylesheet" href="portlogin.css">
+</head>
+<body>
+    <div class="head">
+        <header>SMART PORT MANAGEMENT</header>
+        <h5>ARTIFICIAL INTELLIGENCE DRIVEN</h5>
+        <hr>
+        <div class="tags">
+            <a href="portlogin.html">LOGIN</a>
+            <a href="portLP.html">PORT PREVIEW</a>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <h2>Port Management Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p id="error-msg"></p>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const errorMsg = document.getElementById('error-msg');
+
+        const validUsers = [
+            { username: "portadmin", password: "secure123" },
+            { username: "manager1", password: "dock@456" }
+        ];
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+
+            const authenticated = validUsers.some(u => u.username === user && u.password === pass);
+
+            if (authenticated) {
+                window.location.href = "portdash.html"; // Redirect to dashboard
+            } else {
+                errorMsg.textContent = "❌ Invalid username or password.";
+                errorMsg.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
