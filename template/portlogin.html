@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Port Management Login</title>
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="portoverview.css">
-    <link rel="stylesheet" href="portlogin.css">
+    <link rel="stylesheet" href="D:\PORT PRO\static\css\portlogin.css">
 </head>
 <body>
     <div class="head">
@@ -45,7 +44,8 @@
             const authenticated = validUsers.some(u => u.username === user && u.password === pass);
 
             if (authenticated) {
-                window.location.href = "portdash.html"; // Redirect to dashboard
+                
+                window.location.href = "portdash.html"; 
             } else {
                 errorMsg.textContent = "❌ Invalid username or password.";
                 errorMsg.style.color = "red";

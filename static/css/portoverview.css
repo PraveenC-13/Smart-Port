@@ -1,39 +1,114 @@
+
 body {
-  font-family: Arial, sans-serif;
-  background: #eef4fb;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url("../img/head2.png"); /* Light blue/grey background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+
 .head {
-    background-image: url('head2.png');
+
+    background-image: url('../static/img/head2.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center; 
     color: white;
     padding: 20px;
-    font-size: 2em;
+    font-size: x-large;
     text-align: center;
-    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.head header {
+    
+    margin-bottom: 5px; 
+}
+
 h5 {
     font-size: 14px;
+    margin-top: 5px;
 }
+
+.head hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 10px auto;
+    width: 80%;
+}
+
 .tags {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 10px;
+    font-size: small;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tags a {
     color: #fff;
     text-decoration: none;
-    font-size: 15px;
-    padding: 10px;
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .tags a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-section, .map-section {
+    flex: 1 1 45%; 
+    min-width: 300px; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.description-section {
+    flex: 1 1 100%; 
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #e6f0ff; 
+}
+
+.preview-container h2 {
+    color: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.video-section video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.map-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block; 
 }

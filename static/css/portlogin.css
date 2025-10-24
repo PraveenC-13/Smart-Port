@@ -1,3 +1,15 @@
+
+.head {
+    background-image: url("../img/head2.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .login-container {
     background-color: #ffffff;
     padding: 40px;
