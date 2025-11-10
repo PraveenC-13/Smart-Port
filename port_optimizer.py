@@ -1,143 +1,150 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 import numpy as np
 import random
 import time
 
-app = Flask(__name__)
-# Allow cross-origin requests from frontend for local development
-CORS(app)
+# --- FLASK SETUP ---
+# Configure Flask to find HTML files in the 'template' folder
+app = Flask(__name__, template_folder='template') 
+CORS(app) 
 
-# data Generation
-def simulate_port_data(num_days=100):
-    """Simulates daily port operation metrics."""
+# --- CONFIGURATION AND DATA SIMULATION ---
+
+MAX_DELAY = 120 
+NUM_EPOCHS = 30 
+SIMULATION_DAYS = 100 
+
+PRIORITY_CARGO = ['Food (Perishable)', 'Meat (Frozen/Chilled)', 'Medical Supplies', 'Live Animals', 'Hazardous Materials']
+NORMAL_CARGO = ['Electronics', 'Textiles', 'Automobile Parts', 'Raw Materials']
+WEATHER_CONDITIONS = ['Clear', 'Light Rain', 'Heavy Rain', 'Windy', 'Fog']
+
+def generate_baseline_data():
     data = []
-    # Set a random seed for reproducibility in a single run
-    random.seed(int(time.time() * 1000))
-    for _ in range(num_days):
-        # Cargo volume (50-150 tons)
-        cargo_volume = random.randint(50, 150)
-        # Ships arrived (5-20)
-        ships_arrived = random.randint(5, 20)
-        # Equipment status (0=OK, 1=Needs Maintenance)
-        equipment_status = random.choice([0, 1])
-        # Delay minutes (0-120 min)
-        delay_minutes = random.randint(0, 120)
-        data.append([cargo_volume, ships_arrived, equipment_status, delay_minutes])
-    return np.array(data)
-
-# Preprocessing
-def preprocess_data(data):
-    """Normalizes the input data features (0 to 1)."""
-    min_vals = data.min(axis=0)
-    max_vals = data.max(axis=0)
-    # Use max_vals - min_vals + 1e-9 to prevent division by zero
-    normalized = (data - min_vals) / (max_vals - min_vals + 1e-9)
-    return normalized
-
-# Meta Learner AI optimizer
-class MetaLearner:
-    """Simulates an AI that proposes and evaluates workflow parameters."""
-    def __init__(self):
-        self.best_workflow_param = None
-        # Initialize with a high score (minimization problem)
-        self.best_score = float('inf')
-
-    def propose_workflow(self):
-        """Proposes a new workflow parameter between 0 and 1."""
-        return random.uniform(0, 1)
-
-    def evaluate_workflow(self, workflow_param, simulation_results):
-        """
-        Evaluates the workflow based on the simulated results.
-        The score minimizes average delay but heavily penalizes low parameters.
-        Low parameter means less intervention, which is usually worse for delay.
-        """
-        # Feature 3 is the normalized delay (simulated_data[:, 3])
-        avg_delay = np.mean(simulation_results[:, 3])
-        # Minimize: (Avg Delay) + (Penalty for low workflow effort)
-        # The score should decrease as the parameter moves towards the optimal setting.
-        return avg_delay * (2 - workflow_param) # Score will be minimized when delay is low and param is high
-
-    def update(self, workflow_param, score):
-        """Updates the best parameter if the current score is better."""
-        if score < self.best_score:
-            self.best_score = score
-            self.best_workflow_param = workflow_param
-
-# Digital Twin Simulation
-def run_simulation(workflow_param, port_data):
-    """
-    Simulates the port operation with an applied workflow optimization.
-    The optimization reduces delay based on the workflow_param (0 to 1).
-    """
-    sim_data = port_data.copy()
-    # Assume the workflow optimization reduces normalized delay (feature index 3)
-    # A parameter of 1.0 means the maximum theoretical improvement (e.g., -50 units of normalized delay reduction)
-    sim_data[:, 3] = np.maximum(0, sim_data[:, 3] - 0.5 * workflow_param)
-    return sim_data
-
-# Self-Evolving Workflow Training (FIXED: Converts bool to string)
-def self_evolving_workflow(data, epochs=30):
-    """Runs the optimization training loop and records every step."""
-    learner = MetaLearner()
-    history = []  # To store optimization steps for visualization
-
-    for epoch in range(epochs):
-        workflow_param = learner.propose_workflow()
-        sim_results = run_simulation(workflow_param, data)
-        score = learner.evaluate_workflow(workflow_param, sim_results)
+    for day in range(1, SIMULATION_DAYS + 1):
+        cargo_type = random.choice(PRIORITY_CARGO + NORMAL_CARGO)
+        weather = random.choice(WEATHER_CONDITIONS)
         
-        # Check if the new score is the best so far for visualization highlight
-        is_new_best = score < learner.best_score
+        base_delay = random.randint(30, 90)
+        if weather in ['Heavy Rain', 'Windy']:
+            base_delay += random.randint(20, 30)
+        if cargo_type in PRIORITY_CARGO:
+            base_delay += random.randint(10, 30)
+            
+        base_delay = min(base_delay, MAX_DELAY)
+
+        data.append({
+            'day': day,
+            'ship_id': f"SHIP-{day:03d}",
+            'cargo_type': cargo_type,
+            'delay_minutes': base_delay,
+            'weather_condition': weather, 
+            'berth_status': random.choice(['Assigned', 'Pending']),
+            'maintenance_cranes': random.randint(0, 2), 
+        })
+    return data
+
+RAW_PORT_DATA = generate_baseline_data()
+
+def run_digital_twin(workflow_param, raw_data):
+    total_score = 0
+    optimized_sample = [] 
+
+    for ship in raw_data:
+        optimization_factor = workflow_param * 0.5 
+
+        if ship['cargo_type'] in PRIORITY_CARGO:
+            priority_weight = 3.0
+            allocated_cranes = random.randint(3, 5) if workflow_param > 0.6 else random.randint(2, 3)
+            allocated_trucks = random.randint(10, 15) if workflow_param > 0.6 else random.randint(5, 10)
+            allocated_berth = "B-A1 (Priority)"
+            crane_status = "Operational"
+            notes = "Expedited clearance due to priority cargo, using dedicated resources."
+            effective_delay = max(20, ship['delay_minutes'] * (1 - optimization_factor * 1.5)) 
+        else:
+            priority_weight = 1.0
+            allocated_cranes = random.randint(1, 2)
+            allocated_trucks = random.randint(3, 7)
+            allocated_berth = random.choice(["B-B2", "B-C3", "B-D4"])
+            crane_status = random.choice(["Operational", "Under Light Maintenance"])
+            notes = "Standard workflow applied, delay reduction based on general port flow."
+            effective_delay = max(20, ship['delay_minutes'] * (1 - optimization_factor * 0.7))
+
+        weather_penalty = 1.0
+        if ship['weather_condition'] in ['Heavy Rain', 'Windy'] and workflow_param < 0.5:
+             weather_penalty = 1.2 
+
+        weighted_delay = effective_delay * priority_weight
+        score = weighted_delay * (2.0 - workflow_param) * weather_penalty
         
-        learner.update(workflow_param, score)
+        total_score += score
         
-        history.append({
-            "epoch": epoch + 1,
-            "param": round(workflow_param, 4),
-            "score": round(score, 4),
-            # FIX applied here: Convert boolean to string so Flask can serialize it to JSON
-            "is_best": "true" if is_new_best else "false"
+        optimized_sample.append({
+            'ship_id': ship['ship_id'],
+            'cargo_type': ship['cargo_type'],
+            'original_delay_min': int(ship['delay_minutes']),
+            'optimized_delay_min': int(effective_delay),
+            'weather_condition': ship['weather_condition'], 
+            'priority_assigned': "High" if ship['cargo_type'] in PRIORITY_CARGO else "Standard",
+            'allocated_cranes': allocated_cranes,
+            'allocated_trucks': allocated_trucks,
+            'allocated_berth': allocated_berth,
+            'crane_maintenance_status': crane_status,
+            'digital_twin_notes': notes,
         })
         
-    final_simulation = run_simulation(learner.best_workflow_param, data)
-    simulation_sample = final_simulation[:5].tolist()
+    return total_score / len(raw_data), optimized_sample 
 
-    return learner.best_workflow_param, learner.best_score, history, simulation_sample
+# --- FLASK ENDPOINTS ---
 
-# API Routes
-@app.route('/run-simulation', methods=['GET'])
-def run_simulation_api():
-    raw_data = simulate_port_data(100)
-    # The optimization is performed on normalized data
-    processed_data = preprocess_data(raw_data)
-    
-    # Get optimization history
-    best_param, best_score, history, simulation_sample = self_evolving_workflow(processed_data)
-
-    return jsonify({
-        "best_param": round(best_param, 4),
-        "best_score": round(best_score, 4),
-        "optimization_history": history,
-        "simulation_sample": simulation_sample
-    })
+# Route to serve the main HTML file (Ensure this file is in the 'template' folder)
+@app.route('/')
+def index():
+    # Flask will look for 'port_dashboard.html' inside the 'template' folder
+    return render_template('port_dashboard.html')
 
 @app.route('/raw-port-data', methods=['GET'])
-def get_raw_port_data():
-    """Returns a sample of raw, unoptimized port data."""
-    raw_data = simulate_port_data(100)
-    data_list = [
-        {
-            "day": i + 1,
-            "cargo_volume_tons": int(row[0]),
-            "ships_arrived": int(row[1]),
-            "equipment_status": "OK" if row[2] == 0 else "Needs Maintenance",
-            "delay_minutes": int(row[3])
-        }
-        for i, row in enumerate(raw_data[:20]) # Limit to 20 days for display
-    ]
-    return jsonify(data_list)
+def get_raw_data_sample():
+    sample_data = []
+    for i, ship in enumerate(RAW_PORT_DATA[:5]):
+        sample_data.append({
+            'day': i + 1,
+            'ship_id': ship['ship_id'],
+            'cargo_type': ship['cargo_type'],
+            'weather_condition': ship['weather_condition'],
+            'original_delay': ship['delay_minutes']
+        })
+    return jsonify(sample_data)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.route('/run-simulation', methods=['GET'])
+def run_simulation():
+    optimization_history = []
+    best_score = float('inf')
+    best_param = 0
+    best_sample_data_list = []
+    
+    for epoch in range(1, NUM_EPOCHS + 1):
+        workflow_param = round(random.uniform(0.1, 0.95), 4) 
+        avg_score, sample_data = run_digital_twin(workflow_param, RAW_PORT_DATA)
+
+        if avg_score < best_score:
+            best_score = avg_score
+            best_param = workflow_param
+            best_sample_data_list = sample_data
+            
+        time.sleep(0.05) 
+
+    high_priority_sample = [s for s in best_sample_data_list if s['priority_assigned'] == 'High']
+    dashboard_sample = random.choice(high_priority_sample) if high_priority_sample else best_sample_data_list[0]
+
+    return jsonify({
+        'status': 'complete',
+        'best_score': round(best_score, 2),
+        'best_param': f"{best_param:.4f}",
+        'best_operation_description': "Optimal strategy for maximizing resource allocation (cranes, trucks, berths) towards high-priority cargo under current conditions.",
+        'simulation_sample': [dashboard_sample] 
+    })
+
+if __name__ == '__main__':
+    # Flask will now look for files in the 'template' and 'static' folders automatically
+    app.run(debug=True, port=5000)

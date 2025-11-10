@@ -1,37 +1,41 @@
-/* Custom CSS for Port Dashboard (portdash.css) */
-
-/* --- BODY STYLING --- */
+/* Base Styles */
 body {
     font-family: Arial, sans-serif;
-    background-image: url("../img/head2.png"); /* Light blue/grey background */
-    background-repeat: no-repeat;
+    /* This style will set the overall light background color/image */
+    background-image: url("../img/head2.png"); 
     margin: 0;
     padding: 0;
     display: flex;
+    background-repeat: no-repeat;
     flex-direction: column;
     min-height: 100vh;
 }
 
-
+/* Header Styles */
 .head {
-
+    /* Set the background image for the banner. NOTE: Using the path you specified which is likely a placeholder for your deployed structure. */
     background-image: url('../static/img/head2.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
     color: white;
     padding: 20px;
-    font-size: x-large;
+    font-size: x-large; /* Specific font size from your request */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .head header {
-    /* Minor styling for the header element inside .head */
+    /* Ensures the main title is centered correctly */
     margin-bottom: 5px; 
 }
 
+h5 {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .head hr {
-    /* Separator line for the header */
     border: 0;
     height: 1px;
     background: rgba(255, 255, 255, 0.5);
@@ -39,49 +43,38 @@ body {
     width: 80%;
 }
 
-h5 {
-    /* Styling for h5 within the header area */
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* --- NAVIGATION STYLING (.tags) --- */
-/* The .tags and .tags a rules have been consolidated. 
-   The most recent, simpler link styling is kept. */
 .tags {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly; /* Use this for distributed links */
-    /* If you prefer center, use: justify-content: center; */
-    gap: 20px; /* Added gap for better spacing */
+    /* Using space-evenly as it was present in one of your primary CSS blocks */
+    justify-content: space-evenly;
+    gap: 20px; 
+    margin-top: 15px;
     font-size: small;
-    margin-top: 15px; /* Added margin from original, ensuring separation from the header content */
     margin-left: auto;
     margin-right: auto;
-    max-width: 800px; /* Constrain the tags width slightly */
 }
 
+/* --- BUTTON STYLING FOR NAV LINKS --- */
 .tags a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-    padding: 5px 15px;
+    padding: 10px 20px; 
     
-    /* Using the link background from the first block for better visibility */
-    background-color: rgba(20, 30, 34, 0.85); 
+    background-color: #003366; 
     border-radius: 5px;
     transition: background-color 0.3s ease; 
-    font-weight: 500;
 }
 
 .tags a:hover {
-    /* Keeping the most distinctive hover effect */
-    background-color: #87caeb; 
-    text-decoration: none;
+    background-color: #005580; 
+    text-decoration: none; 
 }
+/* --- END BUTTON STYLING --- */
 
 
-/* --- MAIN DASHBOARD CONTAINER STYLING --- */
+/* Main Content Layout (For pages like 'portoverview') */
 .preview-container {
     display: flex;
     flex-wrap: wrap; 
@@ -94,6 +87,23 @@ h5 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Individual Section Styles */
+.video-section, .map-section {
+    flex: 1 1 45%; 
+    min-width: 300px; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.description-section {
+    flex: 1 1 100%; 
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #e6f0ff; 
+}
+
 .preview-container h2 {
     color: #003366;
     border-bottom: 2px solid #003366;
@@ -102,8 +112,21 @@ h5 {
     font-size: 22px;
 }
 
+/* Media Element Sizing */
+.video-section video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
-/* --- GAUGE STYLING (Unchanged) --- */
+.map-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block; 
+}
+
+/* Gauge Chart Custom CSS (For the Dashboard) */
 .gauge-container {
     width: 250px;
     height: 125px;
@@ -129,9 +152,9 @@ h5 {
 .gauge-arc {
     border-bottom-color: #10b981;
     border-left-color: #10b981;
-    transform: rotate(-45deg); 
-    transition: transform 1.5s ease-out; 
-    clip: rect(0, 250px, 125px, 0); 
+    transform: rotate(-45deg);
+    transition: transform 1.5s ease-out;
+    clip: rect(0, 125px, 125px, 0); 
 }
 .gauge-fill {
     position: absolute;
@@ -145,3 +168,9 @@ h5 {
 .gauge-value {
     position: absolute;
     bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #10b981;
+}

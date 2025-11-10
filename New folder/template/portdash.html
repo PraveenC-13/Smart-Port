@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Port AI Workflow Project Dashboard</title>
+    
+    <link rel="stylesheet" href="D:\PORT PRO\static\css\portdash.css"/>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="font-sans text-gray-800">
+
+    <div class="head">
+        <header>SMART PORT MANAGEMENT</header>
+        <h5>ARTIFICIAL INTELLIGENCE DRIVEN</h5>
+        <hr>
+        <div class="tags">
+            <a href="portoverview.html">PORT PREVIEW</a>
+        </div>
+    </div>
+    <main class="max-w-6xl mx-auto bg-white p-6 sm:p-10 shadow-xl rounded-2xl my-8">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-indigo-700 tracking-tight">AI Optimization Dashboard</h1>
+            <p class="mt-2 text-xl text-gray-500">Self-Evolving Workflow Digital Twin Project</p>
+        </header>
+
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-10 pb-6 border-b border-gray-200">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4 sm:mb-0">Simulation Control</h2>
+            <button id="startSim" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 transition duration-150 shadow-lg active:scale-95 disabled:bg-indigo-400">
+                Run AI Optimization & Simulation
+            </button>
+        </div>
+
+        <div id="output">
+            <p class="text-center text-lg text-gray-500 py-12" id="initialMessage">
+                Click "Run AI Optimization & Simulation" to begin the learning process and view results.
+            </p>
+
+            <div id="loading" class="hidden text-center py-12">
+                <div class="animate-spin inline-block w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full"></div>
+                <p class="mt-4 text-indigo-600 font-medium">AI Meta-Learner is training (30 epochs)...</p>
+            </div>
+
+            <div id="resultsGrid" class="hidden grid md:grid-cols-3 gap-8 mt-8">
+
+                <div class="md:col-span-1 bg-gray-50 p-6 rounded-xl shadow-inner border border-gray-200">
+                    <h3 class="text-xl font-bold text-indigo-700 mb-4 border-b pb-2">AI Optimization Summary</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-500">Best Workflow Parameter:</p>
+                        <p id="bestParam" class="text-3xl font-extrabold text-green-600"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">AI Efficiency Score (Minimization Target):</p>
+                        <p id="bestScore" class="text-3xl font-extrabold text-green-600"></p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-500">Optimization Goal:</p>
+                        <p class="text-base font-medium text-gray-700">Minimize delay while maximizing optimization effort.</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1 p-6 rounded-xl shadow-lg bg-white flex flex-col items-center justify-center">
+                    <h3 class="text-xl font-bold text-gray-700 mb-4">Port Efficiency Improvement</h3>
+                    <div class="gauge-container">
+                        <div class="gauge-background"></div>
+                        <div class="gauge-fill">
+                            <div id="gaugeArc" class="gauge-arc"></div>
+                        </div>
+                        <p class="gauge-value" id="efficiencyValue">0%</p>
+                    </div>
+                    <p class="text-center mt-2 text-sm text-gray-500">
+                        Based on optimized score (lower is better).
+                    </p>
+                </div>
+
+                
+                <div class="md:col-span-1 p-6 rounded-xl shadow-lg bg-white">
+                    <h3 class="text-xl font-bold text-gray-700 mb-4 border-b pb-2">Delay Comparison (Sample)</h3>
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th class="py-2 px-1">Day</th>
+                                <th class="py-2 px-1">Original Delay (min)</th>
+                                <th class="py-2 px-1 text-green-600">Optimized Delay (min)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="delayTableBody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            
+            <div class="mt-10"></div> 
+        </div>
+    </main>
+
+    <footer class="text-center mt-12 py-4 text-gray-400 text-sm border-t border-gray-200">&copy; 2025 Smart Port Automation Project</footer>
+
+    <script>
+        const API_BASE = 'http://127.0.0.1:5000';
+        const startSimButton = document.getElementById('startSim');
+        const loadingDiv = document.getElementById('loading');
+        const initialMessage = document.getElementById('initialMessage');
+        const resultsGrid = document.getElementById('resultsGrid');
+        
+        const bestParamEl = document.getElementById('bestParam');
+        const bestScoreEl = document.getElementById('bestScore');
+        const delayTableBody = document.getElementById('delayTableBody');
+        const efficiencyValueEl = document.getElementById('efficiencyValue');
+        const gaugeArc = document.getElementById('gaugeArc');
+
+        function setGaugeValue(normalizedScore) {
+            const efficiency = 1 - normalizedScore; 
+            const rotation = efficiency * 180;
+            const displayPercent = Math.round(efficiency * 100);
+
+            gaugeArc.style.transform = `rotate(${rotation - 45}deg)`;
+            efficiencyValueEl.textContent = `${displayPercent}%`;
+            efficiencyValueEl.style.color = displayPercent >= 75 ? '#10b981' : displayPercent >= 50 ? '#f59e0b' : '#ef4444';
+        }
+
+        async function runSimulation() {
+            startSimButton.disabled = true;
+            initialMessage.classList.add('hidden');
+            resultsGrid.classList.add('hidden');
+            
+            loadingDiv.classList.remove('hidden');
+
+            try {
+                const response = await fetch(`${API_BASE}/run-simulation`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                loadingDiv.classList.add('hidden');
+                resultsGrid.classList.remove('hidden');
+                
+                bestParamEl.textContent = data.best_param;
+                bestScoreEl.textContent = data.best_score;
+
+                const scores = data.optimization_history.map(item => item.score);
+                const maxScore = Math.max(...scores);
+                const minScore = Math.min(...scores);
+                
+                const normalizedBestScore = (data.best_score - minScore) / (maxScore - minScore + 1e-9);
+
+            
+                setGaugeValue(normalizedBestScore);
+
+
+                delayTableBody.innerHTML = '';
+                const rawDataResponse = await fetch(`${API_BASE}/raw-port-data`);
+                const rawData = await rawDataResponse.json();
+
+                
+                const sampleSize = 5;
+                for (let i = 0; i < sampleSize; i++) {
+                    const row = delayTableBody.insertRow();
+                    const rawDelay = rawData[i].delay_minutes;
+                    const optimizedDelay = Math.round(data.simulation_sample[i][3] * 120); 
+                    
+                    row.innerHTML = `
+                        <td class="py-2 px-1">${rawData[i].day}</td>
+                        <td class="py-2 px-1">${rawDelay} min</td>
+                        <td class="py-2 px-1 text-green-600 font-semibold">${optimizedDelay} min</td>
+                    `;
+                }
+
+
+            } catch (error) {
+                loadingDiv.classList.add('hidden');
+                initialMessage.textContent = `Error: Could not connect to Flask backend or process data. Details: ${error.message}. Make sure 'port_optimizer.py' is running on http://127.0.0.1:5000.`;
+                initialMessage.classList.remove('hidden');
+                console.error("Simulation failed:", error);
+            } finally {
+                startSimButton.disabled = false;
+            }
+        }
+
+
+        startSimButton.addEventListener('click', runSimulation);
+    </script>
+</body>
+</html>

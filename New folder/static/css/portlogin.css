@@ -1,7 +1,7 @@
-
+/* Base Styles */
 body {
     font-family: Arial, sans-serif;
-
+    /* Optional: Added light background and flex properties for full-page centering */
     background: #eef4fb; 
     margin: 0;
     padding: 0;
@@ -10,58 +10,58 @@ body {
     min-height: 100vh;
 }
 
-
+/* Header Banner (.head) Styles */
 .head {
-    
+    /* Use relative path for deployment (assuming the CSS is in 'css/' and image is in 'img/') */
     background-image: url("../img/head2.png"); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: white;
-   
+    /* This padding and font size combination controls the banner's size and text appearance */
     padding: 30px; 
     font-size: x-large; 
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
+/* Optional: Styling for the smaller text (like "ARTIFICIAL INTELLIGENCE DRIVEN") */
 .head h5 {
-    font-size: 14px;
+    font-size: 14px; /* Maintaining the size from previous requests */
     margin: 0;
 }
 
-
+/* Navigation Links Container */
 .tags {
     display: flex;
     flex-direction: row;
-    justify-content: center; 
-    gap: 20px; 
+    justify-content: center; /* Center the buttons */
+    gap: 20px; /* Space between buttons */
     margin-top: 15px;
 }
 
-
+/* --- BUTTON STYLING FOR LINKS --- */
 .tags a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    padding: 10px 20px; 
+    padding: 10px 20px; /* Padding to make it look like a button */
     
-  
+    /* Button appearance */
     background-color: #003366; 
     border-radius: 5px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
 .tags a:hover {
-   
+    /* Hover effect matching your main login button */
     background-color: #005580; 
-    text-decoration: none; 
+    text-decoration: none; /* Ensure no underline appears on hover */
 }
+/* --- END BUTTON STYLING --- */
 
 
-
-
+/* Login Form Container */
 .login-container {
     background-color: #ffffff;
     padding: 40px;
@@ -78,6 +78,7 @@ body {
     font-size: 24px;
 }
 
+/* Input Fields */
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -89,6 +90,7 @@ input[type="password"] {
     font-size: 14px;
 }
 
+/* Main Button (Login) */
 button {
     width: 100%;
     padding: 12px;
@@ -105,7 +107,7 @@ button:hover {
     background-color: #005580;
 }
 
-
+/* Error Message */
 #error-msg {
     margin-top: 15px;
     font-size: 14px;

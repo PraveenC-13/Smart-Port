@@ -1,0 +1,25 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+.Python
+.ipynb_checkpoints
+
+# Virtual environment (BEST PRACTICE)
+venv/
+env/
+
+# IDE/Editor files
+.vscode/     # Visual Studio Code settings
+.idea/       # PyCharm/IntelliJ settings
+*~
+*.swp
+
+# Operating System Files
+.DS_Store    # Mac OS system files
+Thumbs.db    # Windows system files
+
+# Large media files (Optional, but highly recommended for video/PPT)
+# Your project includes these, which are not ideal for version control:
+*.mp4
+*.pptx

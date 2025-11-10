@@ -9,21 +9,21 @@
     ];
 
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); 
+        e.preventDefault(); // Prevent form from reloading the page
 
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
 
-        
+        // Check if user exists and password matches
         const authenticated = validUsers.some(user => 
             user.username === username && user.password === password
         );
 
         if (authenticated) {
-           
+            // Redirect to dashboard if credentials are valid
             window.location.href = "portoverview.html";
         } else {
-            
+            // Show error message if credentials are invalid
             errorMsg.textContent = "❌ Invalid username or password.";
             errorMsg.style.color = "red";
         }
