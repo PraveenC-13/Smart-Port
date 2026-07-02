@@ -12,7 +12,9 @@
 - AI/ML Concepts
 
 ## Future Improvements
+
+- Integrate live IoT sensor streams
+- Cloud deployment using Docker and Kubernetes
+- Predictive maintenance module
 - Real-time analytics dashboard
-- IoT integration
-- Predictive maintenance
-- Cloud deployment
+- Multi-port support
