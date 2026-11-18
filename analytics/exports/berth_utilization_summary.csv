@@ -1,0 +1,5 @@
+Berth_ID,Total_Vessels_Serviced,Avg_Berth_Occupancy_Pct,Avg_Turnaround_Waiting_Min,Total_Cranes_Allocated,Total_Trucks_Allocated
+B-A1 (Priority),53,19.55,27.79,210,673
+B-B2,17,54.32,47.12,27,79
+B-C3,16,54.46,43.5,24,71
+B-D4,14,54.06,47.29,23,76

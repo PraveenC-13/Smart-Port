@@ -1,0 +1,101 @@
+Simulation_Day,Vessel_ID,Cargo_Type,Cargo_Priority,Weather_Condition,Arrival_Time,Departure_Time,Original_Delay_Minutes,Optimized_Delay_Minutes,Waiting_Time_Minutes,Berth_ID,Berth_Status,Berth_Occupancy_Pct,Allocated_Cranes,Allocated_Trucks,Crane_Maintenance_Cranes,Crane_Status,Delay_Category,Digital_Twin_Notes
+1,SHIP-001,Electronics,Standard,Heavy Rain,2026-01-01 17:17:00,2026-01-02 06:08:00,111,75,75,B-C3,Assigned,54.58,2,4,2,Under Light Maintenance,Severe Delay,Standard workflow applied.
+2,SHIP-002,Live Animals,High,Heavy Rain,2026-01-02 20:34:00,2026-01-03 00:55:00,69,21,21,B-A1 (Priority),Pending,18.42,5,13,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+3,SHIP-003,Raw Materials,Standard,Light Rain,2026-01-03 23:51:00,2026-01-04 12:19:00,77,52,52,B-B2,Assigned,52.67,2,4,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+4,SHIP-004,Textiles,Standard,Windy,2026-01-04 14:08:00,2026-01-05 03:00:00,113,76,76,B-D4,Pending,54.67,2,6,0,Operational,Severe Delay,Standard workflow applied.
+5,SHIP-005,Automobile Parts,Standard,Light Rain,2026-01-05 17:25:00,2026-01-06 07:09:00,83,56,56,B-C3,Pending,58.0,1,5,1,Operational,Moderate Delay,Standard workflow applied.
+6,SHIP-006,Meat (Frozen/Chilled),High,Light Rain,2026-01-06 20:42:00,2026-01-07 01:07:00,83,25,25,B-A1 (Priority),Pending,18.75,4,12,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+7,SHIP-007,Medical Supplies,High,Windy,2026-01-07 23:59:00,2026-01-08 04:36:00,120,37,37,B-A1 (Priority),Pending,19.75,5,15,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+8,SHIP-008,Textiles,Standard,Windy,2026-01-08 14:16:00,2026-01-09 03:04:00,107,72,72,B-B2,Pending,54.33,2,5,2,Operational,Severe Delay,Standard workflow applied.
+9,SHIP-009,Meat (Frozen/Chilled),High,Fog,2026-01-09 17:33:00,2026-01-09 22:02:00,95,29,29,B-A1 (Priority),Assigned,19.08,5,15,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+10,SHIP-010,Hazardous Materials,High,Heavy Rain,2026-01-10 20:50:00,2026-01-11 01:15:00,82,25,25,B-A1 (Priority),Pending,18.75,4,10,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+11,SHIP-011,Raw Materials,Standard,Fog,2026-01-11 23:07:00,2026-01-12 11:35:00,78,52,52,B-C3,Pending,52.67,2,7,0,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+12,SHIP-012,Electronics,Standard,Clear,2026-01-12 14:24:00,2026-01-13 03:42:00,45,30,30,B-B2,Pending,55.83,1,5,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+13,SHIP-013,Textiles,Standard,Windy,2026-01-13 17:41:00,2026-01-14 06:09:00,77,52,52,B-D4,Pending,52.67,2,4,0,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+14,SHIP-014,Textiles,Standard,Windy,2026-01-14 20:58:00,2026-01-15 09:37:00,94,63,63,B-C3,Assigned,53.58,2,5,0,Operational,Severe Delay,Standard workflow applied.
+15,SHIP-015,Food (Perishable),High,Windy,2026-01-15 23:15:00,2026-01-16 03:38:00,76,23,23,B-A1 (Priority),Pending,18.58,5,11,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+16,SHIP-016,Hazardous Materials,High,Light Rain,2026-01-16 14:32:00,2026-01-16 19:17:00,71,21,21,B-A1 (Priority),Pending,20.08,3,13,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+17,SHIP-017,Automobile Parts,Standard,Fog,2026-01-17 17:49:00,2026-01-18 07:12:00,53,35,35,B-C3,Assigned,56.25,1,3,1,Operational,Moderate Delay,Standard workflow applied.
+18,SHIP-018,Raw Materials,Standard,Heavy Rain,2026-01-18 20:06:00,2026-01-19 08:19:00,55,37,37,B-B2,Assigned,51.42,2,4,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+19,SHIP-019,Raw Materials,Standard,Heavy Rain,2026-01-19 23:23:00,2026-01-20 11:50:00,76,51,51,B-B2,Assigned,52.58,2,3,1,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+20,SHIP-020,Electronics,Standard,Heavy Rain,2026-01-20 14:40:00,2026-01-21 03:03:00,70,47,47,B-D4,Pending,52.25,2,6,1,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+21,SHIP-021,Meat (Frozen/Chilled),High,Windy,2026-01-21 17:57:00,2026-01-21 22:34:00,120,37,37,B-A1 (Priority),Pending,19.75,5,13,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+22,SHIP-022,Live Animals,High,Clear,2026-01-22 20:14:00,2026-01-23 00:34:00,58,20,20,B-A1 (Priority),Assigned,18.33,5,11,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+23,SHIP-023,Automobile Parts,Standard,Fog,2026-01-23 23:31:00,2026-01-24 12:47:00,42,28,28,B-C3,Pending,55.67,1,7,2,Operational,Low / On-Time,Standard workflow applied.
+24,SHIP-024,Live Animals,High,Heavy Rain,2026-01-24 14:48:00,2026-01-24 19:23:00,115,35,35,B-A1 (Priority),Assigned,19.58,4,15,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+25,SHIP-025,Live Animals,High,Clear,2026-01-25 17:05:00,2026-01-25 21:49:00,66,20,20,B-A1 (Priority),Pending,20.0,3,15,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+26,SHIP-026,Live Animals,High,Fog,2026-01-26 20:22:00,2026-01-27 01:06:00,59,20,20,B-A1 (Priority),Pending,20.0,3,14,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+27,SHIP-027,Medical Supplies,High,Clear,2026-01-27 23:39:00,2026-01-28 04:10:00,103,31,31,B-A1 (Priority),Assigned,19.25,4,15,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+28,SHIP-028,Live Animals,High,Clear,2026-01-28 14:56:00,2026-01-28 19:16:00,61,20,20,B-A1 (Priority),Assigned,18.33,4,12,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+29,SHIP-029,Textiles,Standard,Fog,2026-01-29 17:13:00,2026-01-30 05:20:00,46,31,31,B-B2,Assigned,50.92,2,4,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+30,SHIP-030,Electronics,Standard,Light Rain,2026-01-30 20:30:00,2026-01-31 10:02:00,65,44,44,B-B2,Pending,57.0,1,5,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+31,SHIP-031,Textiles,Standard,Windy,2026-01-31 23:47:00,2026-02-01 13:23:00,72,48,48,B-B2,Pending,57.33,1,3,0,Operational,Moderate Delay,Standard workflow applied.
+32,SHIP-032,Raw Materials,Standard,Windy,2026-02-01 14:04:00,2026-02-02 03:32:00,60,40,40,B-B2,Assigned,56.67,1,6,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+33,SHIP-033,Live Animals,High,Windy,2026-02-02 17:21:00,2026-02-02 21:58:00,120,37,37,B-A1 (Priority),Pending,19.75,4,15,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+34,SHIP-034,Textiles,Standard,Fog,2026-02-03 20:38:00,2026-02-04 09:57:00,47,31,31,B-D4,Assigned,55.92,1,7,1,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+35,SHIP-035,Live Animals,High,Fog,2026-02-04 23:55:00,2026-02-05 04:49:00,98,30,30,B-A1 (Priority),Assigned,20.83,3,10,1,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+36,SHIP-036,Meat (Frozen/Chilled),High,Clear,2026-02-05 14:12:00,2026-02-05 18:41:00,96,29,29,B-A1 (Priority),Pending,19.08,5,15,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+37,SHIP-037,Meat (Frozen/Chilled),High,Heavy Rain,2026-02-06 17:29:00,2026-02-06 22:02:00,109,33,33,B-A1 (Priority),Pending,19.42,5,10,1,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+38,SHIP-038,Live Animals,High,Light Rain,2026-02-07 20:46:00,2026-02-08 01:06:00,57,20,20,B-A1 (Priority),Assigned,18.33,4,14,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+39,SHIP-039,Medical Supplies,High,Fog,2026-02-08 23:03:00,2026-02-09 03:47:00,56,20,20,B-A1 (Priority),Pending,20.0,3,13,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+40,SHIP-040,Meat (Frozen/Chilled),High,Clear,2026-02-09 14:20:00,2026-02-09 18:49:00,94,29,29,B-A1 (Priority),Assigned,19.08,4,15,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+41,SHIP-041,Medical Supplies,High,Light Rain,2026-02-10 17:37:00,2026-02-10 22:35:00,112,34,34,B-A1 (Priority),Assigned,21.17,3,13,1,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+42,SHIP-042,Medical Supplies,High,Light Rain,2026-02-11 20:54:00,2026-02-12 01:26:00,104,32,32,B-A1 (Priority),Assigned,19.33,5,13,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+43,SHIP-043,Automobile Parts,Standard,Heavy Rain,2026-02-12 23:11:00,2026-02-13 13:01:00,92,62,62,B-D4,Pending,58.5,1,5,1,Operational,Severe Delay,Standard workflow applied.
+44,SHIP-044,Electronics,Standard,Fog,2026-02-13 14:28:00,2026-02-14 03:46:00,45,30,30,B-D4,Pending,55.83,1,6,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+45,SHIP-045,Raw Materials,Standard,Fog,2026-02-14 17:45:00,2026-02-15 05:50:00,44,29,29,B-B2,Pending,50.75,2,7,0,Operational,Low / On-Time,Standard workflow applied.
+46,SHIP-046,Hazardous Materials,High,Clear,2026-02-15 20:02:00,2026-02-16 00:55:00,97,29,29,B-A1 (Priority),Assigned,20.75,3,12,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+47,SHIP-047,Medical Supplies,High,Fog,2026-02-16 23:19:00,2026-02-17 03:39:00,67,20,20,B-A1 (Priority),Assigned,18.33,4,15,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+48,SHIP-048,Electronics,Standard,Fog,2026-02-17 14:36:00,2026-02-18 03:03:00,76,51,51,B-D4,Pending,52.58,2,6,1,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+49,SHIP-049,Food (Perishable),High,Fog,2026-02-18 17:53:00,2026-02-18 22:37:00,66,20,20,B-A1 (Priority),Assigned,20.0,3,10,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+50,SHIP-050,Live Animals,High,Fog,2026-02-19 20:10:00,2026-02-20 00:38:00,91,28,28,B-A1 (Priority),Pending,19.0,4,12,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+51,SHIP-051,Textiles,Standard,Clear,2026-02-20 23:27:00,2026-02-21 11:49:00,68,46,46,B-D4,Pending,52.17,2,6,0,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+52,SHIP-052,Food (Perishable),High,Clear,2026-02-21 14:44:00,2026-02-21 19:04:00,57,20,20,B-A1 (Priority),Pending,18.33,5,11,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+53,SHIP-053,Hazardous Materials,High,Windy,2026-02-22 17:01:00,2026-02-22 21:33:00,105,32,32,B-A1 (Priority),Assigned,19.33,5,13,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+54,SHIP-054,Raw Materials,Standard,Windy,2026-02-23 20:18:00,2026-02-24 08:40:00,68,46,46,B-B2,Assigned,52.17,2,5,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+55,SHIP-055,Textiles,Standard,Heavy Rain,2026-02-24 23:35:00,2026-02-25 13:07:00,65,44,44,B-D4,Pending,57.0,1,3,2,Operational,Moderate Delay,Standard workflow applied.
+56,SHIP-056,Medical Supplies,High,Heavy Rain,2026-02-25 14:52:00,2026-02-25 19:28:00,117,36,36,B-A1 (Priority),Pending,19.67,4,12,0,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+57,SHIP-057,Textiles,Standard,Heavy Rain,2026-02-26 17:09:00,2026-02-27 06:03:00,116,78,78,B-D4,Pending,54.83,2,7,2,Operational,Severe Delay,Standard workflow applied.
+58,SHIP-058,Textiles,Standard,Fog,2026-02-27 20:26:00,2026-02-28 09:37:00,34,23,23,B-C3,Pending,55.25,1,3,1,Under Light Maintenance,Low / On-Time,Standard workflow applied.
+59,SHIP-059,Medical Supplies,High,Heavy Rain,2026-02-28 23:43:00,2026-03-01 04:36:00,97,29,29,B-A1 (Priority),Assigned,20.75,3,14,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+60,SHIP-060,Textiles,Standard,Windy,2026-03-01 14:00:00,2026-03-02 02:16:00,60,40,40,B-D4,Assigned,51.67,2,3,2,Operational,Moderate Delay,Standard workflow applied.
+61,SHIP-061,Hazardous Materials,High,Windy,2026-03-02 17:17:00,2026-03-02 22:10:00,94,29,29,B-A1 (Priority),Assigned,20.75,3,15,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+62,SHIP-062,Raw Materials,Standard,Heavy Rain,2026-03-03 20:34:00,2026-03-04 08:48:00,57,38,38,B-C3,Assigned,51.5,2,4,1,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+63,SHIP-063,Electronics,Standard,Windy,2026-03-04 23:51:00,2026-03-05 13:55:00,113,76,76,B-B2,Assigned,59.67,1,4,0,Operational,Severe Delay,Standard workflow applied.
+64,SHIP-064,Electronics,Standard,Windy,2026-03-05 14:08:00,2026-03-06 03:56:00,89,60,60,B-C3,Assigned,58.33,1,3,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+65,SHIP-065,Food (Perishable),High,Light Rain,2026-03-06 17:25:00,2026-03-06 22:16:00,89,27,27,B-A1 (Priority),Pending,20.58,3,14,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+66,SHIP-066,Food (Perishable),High,Windy,2026-03-07 20:42:00,2026-03-08 01:09:00,88,27,27,B-A1 (Priority),Assigned,18.92,4,13,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+67,SHIP-067,Automobile Parts,Standard,Clear,2026-03-08 23:59:00,2026-03-09 13:32:00,67,45,45,B-D4,Pending,57.08,1,5,1,Operational,Moderate Delay,Standard workflow applied.
+68,SHIP-068,Medical Supplies,High,Fog,2026-03-09 14:16:00,2026-03-09 18:40:00,80,24,24,B-A1 (Priority),Assigned,18.67,4,11,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+69,SHIP-069,Automobile Parts,Standard,Light Rain,2026-03-10 17:33:00,2026-03-11 05:40:00,47,31,31,B-D4,Assigned,50.92,2,7,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+70,SHIP-070,Meat (Frozen/Chilled),High,Heavy Rain,2026-03-11 20:50:00,2026-03-12 01:51:00,120,37,37,B-A1 (Priority),Assigned,21.42,3,10,0,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+71,SHIP-071,Hazardous Materials,High,Fog,2026-03-12 23:07:00,2026-03-13 04:00:00,94,29,29,B-A1 (Priority),Pending,20.75,3,12,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+72,SHIP-072,Live Animals,High,Windy,2026-03-13 14:24:00,2026-03-13 19:17:00,94,29,29,B-A1 (Priority),Assigned,20.75,3,14,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+73,SHIP-073,Food (Perishable),High,Fog,2026-03-14 17:41:00,2026-03-14 22:11:00,100,30,30,B-A1 (Priority),Assigned,19.17,4,11,0,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+74,SHIP-074,Food (Perishable),High,Heavy Rain,2026-03-15 20:58:00,2026-03-16 01:46:00,80,24,24,B-A1 (Priority),Assigned,20.33,3,13,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+75,SHIP-075,Raw Materials,Standard,Light Rain,2026-03-16 23:15:00,2026-03-17 11:30:00,58,39,39,B-B2,Pending,51.58,2,5,0,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+76,SHIP-076,Hazardous Materials,High,Windy,2026-03-17 14:32:00,2026-03-17 19:09:00,120,37,37,B-A1 (Priority),Assigned,19.75,4,10,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+77,SHIP-077,Meat (Frozen/Chilled),High,Clear,2026-03-18 17:49:00,2026-03-18 22:09:00,44,20,20,B-A1 (Priority),Assigned,18.33,5,10,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+78,SHIP-078,Live Animals,High,Clear,2026-03-19 20:06:00,2026-03-20 00:26:00,53,20,20,B-A1 (Priority),Pending,18.33,5,11,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+79,SHIP-079,Hazardous Materials,High,Clear,2026-03-20 23:23:00,2026-03-21 03:56:00,108,33,33,B-A1 (Priority),Assigned,19.42,4,14,1,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+80,SHIP-080,Medical Supplies,High,Heavy Rain,2026-03-21 14:40:00,2026-03-21 19:16:00,118,36,36,B-A1 (Priority),Pending,19.67,5,11,0,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+81,SHIP-081,Raw Materials,Standard,Light Rain,2026-03-22 17:57:00,2026-03-23 07:41:00,83,56,56,B-C3,Pending,58.0,1,6,2,Operational,Moderate Delay,Standard workflow applied.
+82,SHIP-082,Food (Perishable),High,Windy,2026-03-23 20:14:00,2026-03-24 01:13:00,115,35,35,B-A1 (Priority),Assigned,21.25,3,13,1,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+83,SHIP-083,Raw Materials,Standard,Light Rain,2026-03-24 23:31:00,2026-03-25 11:31:00,36,24,24,B-C3,Pending,50.33,2,3,1,Operational,Low / On-Time,Standard workflow applied.
+84,SHIP-084,Meat (Frozen/Chilled),High,Heavy Rain,2026-03-25 14:48:00,2026-03-25 19:37:00,84,25,25,B-A1 (Priority),Pending,20.42,3,13,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+85,SHIP-085,Electronics,Standard,Fog,2026-03-26 17:05:00,2026-03-27 06:16:00,34,23,23,B-C3,Pending,55.25,1,4,2,Under Light Maintenance,Low / On-Time,Standard workflow applied.
+86,SHIP-086,Medical Supplies,High,Fog,2026-03-27 20:22:00,2026-03-28 00:49:00,88,27,27,B-A1 (Priority),Assigned,18.92,4,11,0,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+87,SHIP-087,Live Animals,High,Heavy Rain,2026-03-28 23:39:00,2026-03-29 04:25:00,73,22,22,B-A1 (Priority),Assigned,20.17,3,14,1,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+88,SHIP-088,Automobile Parts,Standard,Fog,2026-03-29 14:56:00,2026-03-30 03:13:00,61,41,41,B-B2,Assigned,51.75,2,5,1,Operational,Moderate Delay,Standard workflow applied.
+89,SHIP-089,Medical Supplies,High,Heavy Rain,2026-03-30 17:13:00,2026-03-30 21:50:00,120,37,37,B-A1 (Priority),Pending,19.75,4,13,1,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+90,SHIP-090,Automobile Parts,Standard,Light Rain,2026-03-31 20:30:00,2026-04-01 08:29:00,34,23,23,B-C3,Assigned,50.25,2,3,0,Operational,Low / On-Time,Standard workflow applied.
+91,SHIP-091,Raw Materials,Standard,Light Rain,2026-04-01 23:47:00,2026-04-02 13:26:00,76,51,51,B-B2,Pending,57.58,1,6,1,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+92,SHIP-092,Raw Materials,Standard,Light Rain,2026-04-02 14:04:00,2026-04-03 02:19:00,59,39,39,B-B2,Pending,51.58,2,4,0,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+93,SHIP-093,Textiles,Standard,Windy,2026-04-03 17:21:00,2026-04-04 05:47:00,74,50,50,B-C3,Assigned,52.5,2,5,2,Under Light Maintenance,Moderate Delay,Standard workflow applied.
+94,SHIP-094,Food (Perishable),High,Light Rain,2026-04-04 20:38:00,2026-04-05 01:09:00,101,31,31,B-A1 (Priority),Assigned,19.25,4,13,2,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+95,SHIP-095,Hazardous Materials,High,Light Rain,2026-04-05 23:55:00,2026-04-06 04:15:00,55,20,20,B-A1 (Priority),Pending,18.33,5,12,2,Operational,Low / On-Time,Expedited clearance due to priority cargo.
+96,SHIP-096,Raw Materials,Standard,Light Rain,2026-04-06 14:12:00,2026-04-07 02:13:00,38,25,25,B-C3,Assigned,50.42,2,5,2,Under Light Maintenance,Low / On-Time,Standard workflow applied.
+97,SHIP-097,Electronics,Standard,Heavy Rain,2026-04-07 17:29:00,2026-04-08 07:22:00,96,65,65,B-C3,Assigned,58.75,1,4,1,Operational,Severe Delay,Standard workflow applied.
+98,SHIP-098,Raw Materials,Standard,Windy,2026-04-08 20:46:00,2026-04-09 10:49:00,111,75,75,B-B2,Pending,59.58,1,4,1,Under Light Maintenance,Severe Delay,Standard workflow applied.
+99,SHIP-099,Food (Perishable),High,Windy,2026-04-09 23:03:00,2026-04-10 03:35:00,105,32,32,B-A1 (Priority),Assigned,19.33,5,14,0,Operational,Moderate Delay,Expedited clearance due to priority cargo.
+100,SHIP-100,Raw Materials,Standard,Fog,2026-04-10 14:20:00,2026-04-11 02:25:00,43,29,29,B-D4,Pending,50.75,2,5,0,Operational,Low / On-Time,Standard workflow applied.
