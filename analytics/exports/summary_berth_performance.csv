@@ -1,0 +1,5 @@
+Berth_ID,Vessel_Count,Avg_Occupancy_Pct,Min_Occupancy_Pct,Max_Occupancy_Pct,Avg_Waiting_Time,Total_Cranes_Deployed,Avg_Cranes_Per_Vessel
+B-A1 (Priority),53,19.55,18.33,21.42,27.79,210,3.96
+B-B2,17,54.32,50.75,59.67,47.12,27,1.59
+B-C3,16,54.46,50.25,58.75,43.5,24,1.5
+B-D4,14,54.06,50.75,58.5,47.29,23,1.64

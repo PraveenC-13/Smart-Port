@@ -1,0 +1,3 @@
+Cargo_Priority,Vessel_Count,Avg_Original_Delay,Avg_Optimized_Delay,Avg_Waiting_Time,Median_Waiting_Time,Avg_Cranes,Avg_Trucks,Avg_Berth_Occupancy,Delay_Reduction_Pct
+High,53,89.51,27.79,27.79,29.0,3.96,12.7,19.55,68.95
+Standard,47,68.4,45.94,45.94,45.0,1.57,4.81,54.29,32.85

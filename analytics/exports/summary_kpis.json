@@ -1,0 +1,15 @@
+{
+    "total_vessels_handled": 100,
+    "avg_waiting_time_minutes": 36.32,
+    "median_waiting_time_minutes": 31.5,
+    "std_waiting_time_minutes": 14.77,
+    "min_waiting_time_minutes": 20,
+    "max_waiting_time_minutes": 78,
+    "avg_berth_occupancy_pct": 35.88,
+    "total_original_delay_min": 7959,
+    "total_optimized_delay_min": 3632,
+    "total_delay_saved_min": 4327,
+    "port_efficiency_gain_pct": 54.37,
+    "high_priority_vessels": 53,
+    "standard_priority_vessels": 47
+}
